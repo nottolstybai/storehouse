@@ -1,22 +1,46 @@
 package com.example.storehouse;
 
+import java.util.Random;
+
 public class Products {
+    private static int count = 0;
     private int id;
+    private String name;
     private String type;
     private int price;
-    private Person person;
     private String expireDate;
     private int quantity;
-    private String location;
+    private int location;
 
-    public Products(int id, String type, int price, Person person, String expireDate, int quantity, String location){
+    public Products(int id, String name, String type, int price, String expireDate, int quantity, int location){
         this.id = id;
+        this.name = name;
         this.type = type;
         this.price = price;
-        this.person = person;
         this.expireDate = expireDate;
         this.quantity = quantity;
         this.location = location;
+    }
+
+    public Products() {
+        id = ++count;
+        name = randomString(10);
+        type = randomString(10);
+        price = 1+((int) (Math.random() * 10));
+        expireDate = "01.01.2022";
+        quantity = 1+((int) (Math.random() * 100));
+        location = 1+((int) (Math.random() * 100));
+    }
+
+    private String randomString(int length) {
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        Random random = new Random();
+
+        return random.ints(leftLimit, rightLimit + 1)
+                .limit(length)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
     }
 
     public int getId() {
@@ -31,10 +55,6 @@ public class Products {
         return type;
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
     public String getExpireDate() {
         return expireDate;
     }
@@ -43,15 +63,17 @@ public class Products {
         return quantity;
     }
 
-    public String getLocation() {
+    public int getLocation() {
         return location;
     }
+
+    public String getName() {return name;}
 
     public void setPrice(int price) {
         this.price = price;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 

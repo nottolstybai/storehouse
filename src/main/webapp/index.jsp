@@ -1,6 +1,4 @@
-<%@ page import="com.example.storehouse.Consumer" %>
-<%@ page import="com.example.storehouse.Person" %>
-<%@ page import="com.example.storehouse.Provider" %>
+<%@ page import="com.example.storehouse.*" %>
 <%@ page import="javax.xml.crypto.Data" %>
 <%@ page import="com.example.storehouse.Database" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -13,15 +11,29 @@
     </head>
     <body>
         <header>
-            <img class="logo" src="images/logo.svg" alt="logo pic">
+            <img class="logo" src="images/temp.png" alt="logo pic">
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#">Добавить</a></li>
-                    <li><a href="#">Поиск</a></li>
+                    <li><a href="index.jsp">Главная</a></li>
+                    <li><a href="products.jsp">Товары</a></li>
+                    <li><a href="#">Заказы</a></li>
+                    <li><a href="clients.jsp">Клиенты</a></li>
                 </ul>
             </nav>
             <a class="cta" href="#"><button>Contact</button></a>
         </header>
+        <main>
+            <div class="main-area">
+                <div class="text-area">
+                    <span>
+                        Добро пожаловать в приложение главной управляющей компании в г.Обнинск.
+                        Приложение создано для курса "Иформационные web-технологии" в рамках лабораторной работы № 1
+                        На этом сайте вы найдете информацию об услугах, предоставляемых компанией, контактные данные и другую полезную информацию.
+                        Так же на сайте доступна база данных, с помощью которой можно добавить, просмотреть и найти нужную квитанцию.
+                        Приятного пользования!
+                    </span>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
