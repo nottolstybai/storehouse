@@ -1,3 +1,5 @@
+package com.example.storehouse;
+
 public class Consumer extends Person {
 
     public Consumer(int id, String name, String address, String email, String phone) {

@@ -1,3 +1,5 @@
+package com.example.storehouse;
+
 public class Provider extends Person {
 
     public Provider(int id, String name, String address, String email, String phone) {

@@ -1,3 +1,5 @@
+package com.example.storehouse;
+
 public class Products {
     private int id;
     private String type;

@@ -1,3 +1,5 @@
+package com.example.storehouse;
+
 public abstract class Person {
     protected int id;
     protected String name;

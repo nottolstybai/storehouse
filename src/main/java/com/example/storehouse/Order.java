@@ -1,3 +1,5 @@
+package com.example.storehouse;
+
 public class Order {
     private int id;
     private String dateTime;
