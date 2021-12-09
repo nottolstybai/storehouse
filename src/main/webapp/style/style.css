@@ -119,4 +119,7 @@ button:hover {
 .add-form {
     margin: 20px;
 }
+.content-area {
+    display: flex;
+}
 

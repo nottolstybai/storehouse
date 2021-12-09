@@ -11,12 +11,13 @@ public class Client  {
     private String email;
     private String role;
 
-    public Client (int id, String name, String address, String email, String phone){
+    public Client (String name, String address, String email, String phone, String role){
         this.id = ++count;
         this.name = name;
         this.address = address;
         this.email = email;
         this.phone = phone;
+        this.role = role;
     }
 
     public Client (){
