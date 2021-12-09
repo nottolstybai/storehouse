@@ -2,9 +2,9 @@ package com.example.storehouse;
 
 public class Role {
     public static String consumer (){
-        return "Consumer";
+        return "Потребитель";
     }
     public static String provider (){
-        return "Provider";
+        return "Поставщик";
     }
 }

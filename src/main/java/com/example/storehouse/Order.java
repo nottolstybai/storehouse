@@ -1,7 +1,7 @@
 package com.example.storehouse;
 
 public class Order {
-    private int count = 0;
+    private static int count = 0;
     private int id;
     private String dateTime;
     private Products product;
@@ -43,4 +43,11 @@ public class Order {
         return quantity;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
 }

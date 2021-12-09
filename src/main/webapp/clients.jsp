@@ -17,7 +17,7 @@
         for(int i = Database.clientList.size() - 1; i >= 0; i--){
             if (request.getParameter("checkbox"+Database.clientList.get(i).getId()) != null){
                 System.out.println(request.getParameter("checkbox"+Database.clientList.get(i).getId()));
-                Admin.removeClient(Integer.parseInt(request.getParameter("checkbox" + Database.clientList.get(i).getId())));
+                Admin.removeClient(Database.clientList.get(i).getId());
             }
         }
     }
@@ -36,7 +36,7 @@
         <ul class="nav-links">
             <li><a href="index.jsp">Главная</a></li>
             <li><a href="products.jsp">Товары</a></li>
-            <li><a href="#">Заказы</a></li>
+            <li><a href="order.jsp">Заказы</a></li>
             <li><a href="clients.jsp">Клиенты</a></li>
         </ul>
     </nav>
@@ -62,7 +62,7 @@
                         <tbody>
                         <%
                             for(Client client: Database.clientList) {
-                                if(client.getRole().equals("Provider")) {continue;}
+                                if(client.getRole().equals("Потребитель")) {continue;}
                         %>
                         <tr>
                             <td><input type="checkbox" name=<%="checkbox"+client.getId()%> value="<%=client.getId()%>"></td>
@@ -93,7 +93,7 @@
                         <tbody>
                         <%
                             for(Client client: Database.clientList) {
-                                if(client.getRole().equals("Consumer")) {continue;}
+                                if(client.getRole().equals("Поставщик")) {continue;}
                         %>
                         <tr>
                             <td><input type="checkbox" name=<%="checkbox"+client.getId()%> value="<%=client.getId()%>"></td>

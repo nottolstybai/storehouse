@@ -2,8 +2,13 @@
 <%@ page import="com.example.storehouse.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
+//    String dateTime= LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-dd-MM")).toString();
+//    System.out.println(dateTime);
+
     if (!Database.isEnable)Database.Init(10, 10, 10);
     if (request.getParameter("add-button")!=null){
         String name = request.getParameter("productName");
@@ -18,7 +23,7 @@
         for(int i = Database.productList.size() - 1; i >= 0; i--){
             if (request.getParameter("checkbox"+Database.productList.get(i).getId()) != null){
                 System.out.println(request.getParameter("checkbox"+Database.productList.get(i).getId()));
-                Admin.removeProduct(Integer.parseInt(request.getParameter("checkbox" + Database.productList.get(i).getId())));
+                Admin.removeProduct(Database.productList.get(i).getId());
             }
         }
     }
@@ -37,7 +42,7 @@
         <ul class="nav-links">
             <li><a href="index.jsp">Главная</a></li>
             <li><a href="products.jsp">Товары</a></li>
-            <li><a href="#">Заказы</a></li>
+            <li><a href="order.jsp">Заказы</a></li>
             <li><a href="clients.jsp">Клиенты</a></li>
         </ul>
     </nav>

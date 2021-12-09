@@ -2,9 +2,9 @@ package com.example.storehouse;
 
 public class Direction {
     public static String in (){
-        return "IN";
+        return "Поставка";
     }
     public static String out (){
-        return "OUT";
+        return "Выдача";
     }
 }

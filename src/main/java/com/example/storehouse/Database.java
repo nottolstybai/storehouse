@@ -31,6 +31,15 @@ public class Database {
         }
         return null;
     }
+    public static Products getProductByName(String name){
+        for (Products product : productList) {
+            String productName = product.getName();
+            if (productName.equals(name)) {
+                return product;
+            }
+        }
+        return null;
+    }
     public static Client getClientByID(int id){
         for (Client client : clientList) {
             int clientId = client.getId();
@@ -40,6 +49,17 @@ public class Database {
         }
         return null;
     }
+
+    public static Client getClientByName(String name){
+        for (Client client : clientList) {
+            String clientName = client.getName();
+            if (clientName.equals(name)) {
+                return client;
+            }
+        }
+        return null;
+    }
+
     public static Order getOrderByID(int id){
         for (Order order : orderList) {
             int orderId = order.getId();
