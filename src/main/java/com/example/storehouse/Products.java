@@ -12,8 +12,8 @@ public class Products {
     private int quantity;
     private int location;
 
-    public Products(int id, String name, String type, int price, String expireDate, int quantity, int location){
-        this.id = id;
+    public Products(String name, String type, int price, String expireDate, int quantity, int location){
+        this.id = ++count;
         this.name = name;
         this.type = type;
         this.price = price;

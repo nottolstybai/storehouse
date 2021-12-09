@@ -3,6 +3,7 @@ package com.example.storehouse;
 import java.util.Random;
 
 public class Client  {
+    private static int count = 0;
     private int id;
     private String name;
     private String address;
@@ -11,7 +12,7 @@ public class Client  {
     private String role;
 
     public Client (int id, String name, String address, String email, String phone){
-        this.id = id;
+        this.id = ++count;
         this.name = name;
         this.address = address;
         this.email = email;
@@ -19,7 +20,7 @@ public class Client  {
     }
 
     public Client (){
-        id = 1+(int)(Math.random()*4);
+        id = ++count;
         name = randomString(10);
         address = randomString(10);
         email = randomString(10);

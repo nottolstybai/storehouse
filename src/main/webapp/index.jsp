@@ -2,12 +2,15 @@
 <%@ page import="javax.xml.crypto.Data" %>
 <%@ page import="com.example.storehouse.Database" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    if (!Database.isEnable)Database.Init(10, 10, 10);
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Main</title>
-        <link rel="stylesheet" href="style/style.css">
+        <link rel='stylesheet' type='text/css' href='style/style.css' />
     </head>
     <body>
         <header>

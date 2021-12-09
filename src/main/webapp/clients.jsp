@@ -2,14 +2,14 @@
 <%@ page import="com.example.storehouse.*" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    Database.Init(10, 10);
+    if (!Database.isEnable)Database.Init(10, 10, 10);
 %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel='stylesheet' type='text/css' href='style/style.css' />
 </head>
 <body>
 <header>
@@ -27,10 +27,9 @@
 <main>
     <div class="main-area">
         <div class="text-area">
-
         </div>
         <div class="client-table">
-            <table>
+            <table class="product-table">
                 <thead>
                 <tr>
                     <th>Имя</th>
@@ -46,18 +45,18 @@
                         if(client.getRole().equals("Provider")) {continue;}
                 %>
                 <tr>
-                    <th><%=client.getName()%></th>
-                    <th><%=client.getAddress()%></th>
-                    <th><%=client.getPhone()%></th>
-                    <th><%=client.getEmail()%></th>
-                    <th><%=client.getRole()%></th>
+                    <td><%=client.getName()%></td>
+                    <td><%=client.getAddress()%></td>
+                    <td><%=client.getPhone()%></td>
+                    <td><%=client.getEmail()%></td>
+                    <td><%=client.getRole()%></td>
                 </tr>
                 <%  }%>
                 </tbody>
             </table>
         </div>
         <div class="client-table">
-            <table>
+            <table class="product-table">
                 <thead>
                 <tr>
                     <th>Имя</th>
