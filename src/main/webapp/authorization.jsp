@@ -23,7 +23,6 @@
             if (login.equals(Admin.login) && password.equals(Admin.password)){
                 Cookie status = new Cookie("status", "admin");
                 status.setMaxAge(24 * 60 * 60);
-                status.setDomain("http://localhost:8080/");
                 response.addCookie(status);
                 response.sendRedirect("index.jsp");
             }
