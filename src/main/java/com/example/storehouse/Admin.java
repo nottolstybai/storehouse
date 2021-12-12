@@ -3,6 +3,8 @@ package com.example.storehouse;
 import java.util.Random;
 
 public class Admin {
+    public static String login = "admin";
+    public static String password = "admin";
     public static void addProduct(String name, String type, int price, String expireDate, int quantity, int location){
         Products product = new Products(name, type, price, expireDate, quantity, location);
         Database.productList.add(product);
@@ -24,4 +26,11 @@ public class Admin {
     public static void removeOrder(int id){
         Database.orderList.remove(Database.getOrderByID(id));
     }
+    public static void addAccount(String login, String password, Client client){
+        Account account = new Account(login, password, client);
+        Database.accountList.add(account);
+    }
+//    public static void removeAccount(int id){
+//        Database.productList.remove(Database.getProductByID(id));
+//    }
 }

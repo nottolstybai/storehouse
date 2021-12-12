@@ -4,6 +4,17 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     if (!Database.isEnable)Database.Init(10, 10, 10);
+    Cookie[] cookies = request.getCookies();
+    String cookieName = "status";
+    Cookie cookie = null;
+    if(cookies != null) {
+        for(Cookie c: cookies) {
+            if(cookieName.equals(c.getName())) {
+                cookie = c;
+                break;
+            }
+        }
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -21,20 +32,30 @@
                     <li><a href="products.jsp">Товары</a></li>
                     <li><a href="order.jsp">Заказы</a></li>
                     <li><a href="clients.jsp">Клиенты</a></li>
+                    <% if (cookie != null){%>
+                        <%="<li style=\"color: aquamarine\">User: "+cookie.getValue()+"</li>"%>
+                    <%}%>
                 </ul>
             </nav>
-            <a class="cta" href="#"><button>Contact</button></a>
+            <a class="cta" href="authorization.jsp"><button>Войти</button></a>
         </header>
         <main>
             <div class="main-area">
-                <div class="text-area">
+                <div class="content-area">
+                    <div class="img-area">
+                        <img src="images/warehouse.jpg" alt="">
+                    </div>
+                    <div class="text-area">
                     <span>
-                        Добро пожаловать в приложение главной управляющей компании в г.Обнинск.
-                        Приложение создано для курса "Иформационные web-технологии" в рамках лабораторной работы № 1
-                        На этом сайте вы найдете информацию об услугах, предоставляемых компанией, контактные данные и другую полезную информацию.
-                        Так же на сайте доступна база данных, с помощью которой можно добавить, просмотреть и найти нужную квитанцию.
+                        Добро пожаловать в приложение складского учета. <br>
+                        Приложение создано для курса "Технологии программирования" в рамках лабораторной работы № 2.<br>
+                        В данном приложении имеется возможность просматривать уже существующие товары, заказы и существующих клиентов.<br>
+                        Помимо этого, для авторизованных пользователей (админов) имеется возможность добавлять/удалять клиентов, новые
+                        товары и заказы (поставки и выдачи).<br>
+                        Кроме того, имеется возможность получить данные и поставках и выдачах за указанный период времени.<br>
                         Приятного пользования!
                     </span>
+                    </div>
                 </div>
             </div>
         </main>

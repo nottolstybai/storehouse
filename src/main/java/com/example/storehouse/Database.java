@@ -5,6 +5,7 @@ public class Database {
     public static ArrayList<Products> productList = new ArrayList<>();
     public static ArrayList<Order> orderList = new ArrayList<>();
     public static ArrayList<Client> clientList = new ArrayList<>();
+    public static ArrayList<Account> accountList = new ArrayList<>();
     public static boolean isEnable = false;
 
     public static void Init (int productNum, int clientNum, int orderNum){
