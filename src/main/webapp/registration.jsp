@@ -43,7 +43,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Main</title>
+    <title>Registration</title>
     <link rel='stylesheet' type='text/css' href='style/style.css' />
 </head>
 <body>
