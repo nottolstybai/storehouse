@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.example.Storehouse
+web: java $JAVA_OPTS -jar webapp-runner.jar target/Storehouse-1.0-SNAPSHOT.war
