@@ -93,7 +93,7 @@
         <div class="login-area">
             <form action="" method="post">
                 Логин: <input style="width: 192px;" class="input-background" required type="text" name="login"><br>
-                Пароль: <input class="input-background" required type="text" name="password"><br>
+                Пароль: <input class="input-background" required type="password" name="password"><br>
                 <input style="width: 100px; margin-left: 25%; text-align: center" class="input-background" type="submit" name="login-button" value="Войти">
             </form>
             <input style="width: 100px; margin-left: 25%; text-align: center"  class="input-background" type="submit" name="login-button" value="Регистрация" onclick="window.location.href = 'registration.jsp';">

@@ -8,7 +8,8 @@
 <%
 //    String dateTime= LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-dd-MM")).toString();
 //    System.out.println(dateTime);
-    boolean isAvailable = false;
+    boolean isLoggedIn = false;
+    boolean isAvailable = true;
     if (!Database.isEnable)Database.Init(10, 10, 10);
     Cookie[] cookies = request.getCookies();
     String cookieName = "status";
@@ -22,6 +23,7 @@
         }
     }
     if (cookie != null && cookie.getValue().equals("admin")) {
+        isLoggedIn = true;
         if (request.getParameter("add-button") != null) {
             String name = request.getParameter("productName");
             String type = request.getParameter("productType");
@@ -33,7 +35,7 @@
                 Admin.addProduct(name, type, price, date, quantity, location);
             }
             else {
-                isAvailable = true;
+                isAvailable = false;
             }
         }
         if (request.getParameter("delete-button") != null) {
@@ -74,9 +76,13 @@
     </script>
 </head>
 <body>
-<%if (isAvailable){%>
+<%if (!isAvailable){%>
 <%="<script>alert(\"Недостаточно места на складе\")</script>"%>
 <%}%>
+<%if (!isLoggedIn){
+    if(request.getParameter("add-button")!=null || request.getParameter("delete-button")!=null){%>
+<%="<script>alert(\"Вы не являетесь админом, зайдитие под аккаунтом админа чтобы работать с записями\")</script>"%>
+    <%}}%>
 <header>
     <img class="logo" src="images/temp.png" alt="logo pic">
     <nav>
@@ -143,11 +149,11 @@
                     Название товара: <input  class="input-background" name="productName"><br/>
                     Тип товара: <select style="width: 233px" required class="input-background" name="productType" id="">
                     <option value=""></option>
-                    <option value="">Электроника</option>
-                    <option value="">Бытовая техника</option>
-                    <option value="">Еда</option>
-                    <option value="">Химия</option>
-                    <option value="">Лекарства</option>
+                    <option value="Электроника">Электроника</option>
+                    <option value="Бытовая техника">Бытовая техника</option>
+                    <option value="Еда">Еда</option>
+                    <option value="Химия">Химия</option>
+                    <option value="Лекарства">Лекарства</option>
                 </select><br/>
                     Цена: <input style="width: 275px" required class="input-background" type="text" name="productPrice"><br/>
                     Срок годности: <input  style="width: 206px" required class="input-background" type="date" name="expireDate"><br/>

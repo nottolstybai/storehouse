@@ -67,7 +67,7 @@
         <div class="login-area">
             <form action="" method="post">
                 Логин: <input style="width: 192px;" class="input-background" required type="text" name="login"><br>
-                Пароль: <input class="input-background" required type="text" name="password"><br>
+                Пароль: <input class="input-background" required type="password" name="password"><br>
                 Имя: <input style="width: 205px;" class="input-background" required type="text" name="name"><br>
                 Адресс: <input style="width: 185px;" class="input-background" required type="text" name="address"><br>
                 Телефон: <input style="width: 177px;" class="input-background" required type="text" name="phone"><br>

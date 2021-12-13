@@ -6,7 +6,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     if (!Database.isEnable) Database.Init(10, 10, 10);
-    boolean isAvailable = false;
+    boolean isLoggedIn = false;
+    boolean isAvailable = true;
     Cookie[] cookies = request.getCookies();
     String cookieName = "status";
     Cookie cookie = null;
@@ -20,6 +21,7 @@
     }
     boolean isBigger = false;
     if (cookie != null) {
+        isLoggedIn = true;
         if (request.getParameter("add-button1") != null) {
             String productName = request.getParameter("product-name");
             String clientName = request.getParameter("client-name");
@@ -67,7 +69,7 @@
                     Admin.addOrder(deliveryDate, Database.getProductByName(productName), quantity, direction, client);
                 }
                 else{
-                    isAvailable = true;
+                    isAvailable = false;
                 }
             }
         }
@@ -142,9 +144,14 @@
 <%if (isBigger){%>
 <%="<script>alert(\"Превышено количество запрашиваемого товара\")</script>"%>
 <%}%>
-<%if (isAvailable){%>
+<%if (!isAvailable){%>
 <%="<script>alert(\"Недостаточно места на складе\")</script>"%>
 <%}%>
+<%if (!isLoggedIn){
+    if(request.getParameter("add-button1")!=null || request.getParameter("delete-button1")!=null ||
+            request.getParameter("add-button2")!=null || request.getParameter("delete-button2")!=null){%>
+<%="<script>alert(\"Вы не вошли в аккаунт чтобы работать с заказами\")</script>"%>
+<%}}%>
 <header>
     <img class="logo" src="images/temp.png" alt="logo pic">
     <nav>
@@ -275,11 +282,11 @@
                     Тип товара:
                     <select required name="product-type" class="input-background">
                         <option value=""></option>
-                        <option value="">Электроника</option>
-                        <option value="">Бытовая техника</option>
-                        <option value="">Еда</option>
-                        <option value="">Химия</option>
-                        <option value="">Лекарства</option>
+                        <option value="Электроника">Электроника</option>
+                        <option value="Бытовая техника">Бытовая техника</option>
+                        <option value="Еда">Еда</option>
+                        <option value="Химия">Химия</option>
+                        <option value="Лекарства">Лекарства</option>
                     </select><br/>
                     Цена: <input style="width: 275px" required class="input-background" type="text" name="product-price"><br/>
                     Срок годности: <input  style="width: 206px" required class="input-background" type="date" name="expire-date"><br/>

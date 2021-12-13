@@ -3,6 +3,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     if (!Database.isEnable)Database.Init(10, 10, 10);
+    boolean isLoggedIn = false;
     Cookie[] cookies = request.getCookies();
     String cookieName = "status";
     Cookie cookie = null;
@@ -15,6 +16,7 @@
         }
     }
     if (cookie != null && cookie.getValue().equals("admin")) {
+        isLoggedIn = true;
         if (request.getParameter("add-button") != null) {
             String fullName = request.getParameter("full-name");
             String address = request.getParameter("address");
@@ -77,6 +79,10 @@
     </script>
 </head>
 <body>
+<%if (!isLoggedIn){
+    if(request.getParameter("add-button")!=null || request.getParameter("delete-button")!=null){%>
+<%="<script>alert(\"Вы не являетесь админом, зайдитие под аккаунтом админа чтобы работать с записями\")</script>"%>
+<%}}%>
 <header>
     <img class="logo" src="images/temp.png" alt="logo pic">
     <nav>
