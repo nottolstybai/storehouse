@@ -175,8 +175,9 @@
                 <form class="add-form" action="" method="post">
                     Имя: <input  class="input-background" name="full-name"><br/>
                     Адрес: <input  class="input-background" name="address"><br/>
-                    Телефон: <input required class="input-background" type="text" name="phone"><br/>
-                    Почта: <input required class="input-background" type="text" name="email"><br/>
+                    Телефон: <input required class="input-background" type="tel" placeholder="###-###-##-##"
+                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" name="phone"><br/>
+                    Почта: <input required class="input-background" type="email" name="email"><br/>
                     Роль:
                     <select required class="input-background" name="role" id="">
                         <option value=""></option>

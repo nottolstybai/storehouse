@@ -70,4 +70,14 @@ public class Database {
         }
         return null;
     }
+
+    public static Account getAccountByLogin(String login) {
+        for (Account account : accountList) {
+            String accountLogin = account.getLogin();
+            if (accountLogin.equals(login)) {
+                return account;
+            }
+        }
+        return null;
+    }
 }

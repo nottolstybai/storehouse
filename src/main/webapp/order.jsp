@@ -231,7 +231,7 @@
                         <%}%>
                     </select><br/>
                     Дата заказа: <input style="width: 275px" required class="input-background" type="date" name="date"><br/>
-                    Количество: <input  style="width: 206px" required class="input-background" type="text" name="quantity"><br/>
+                    Количество: <input pattern="[0-9]+" maxlength="9" style="width: 206px" required class="input-background" type="text" name="quantity"><br/>
                     <input class="input-background" type="submit" name="add-button1" value="Добавить">
                 </form>
             </div>
@@ -288,9 +288,9 @@
                         <option value="Химия">Химия</option>
                         <option value="Лекарства">Лекарства</option>
                     </select><br/>
-                    Цена: <input style="width: 275px" required class="input-background" type="text" name="product-price"><br/>
+                    Цена: <input pattern="[0-9]+" maxlength="9" style="width: 275px" required class="input-background" type="text" name="product-price"><br/>
                     Срок годности: <input  style="width: 206px" required class="input-background" type="date" name="expire-date"><br/>
-                    Ячейка на складе: <input style="width: 260px" required class="input-background" type="text" name="product-location"><br/>
+                    Ячейка на складе: <input pattern="[0-9]+" maxlength="3" style="width: 260px" required class="input-background" type="text" name="product-location"><br/>
                     Имя заказчика:
                     <select required name="client-name" class="input-background">
                         <option value=""></option>
@@ -302,7 +302,7 @@
                         <%}%>
                     </select><br/>
                     Дата поставки: <input style="width: 275px" required class="input-background" type="date" name="date"><br/>
-                    Количество: <input  style="width: 206px" required class="input-background" type="text" name="quantity"><br/>
+                    Количество: <input pattern="[0-9]+" maxlength="9" style="width: 206px" required class="input-background" type="text" name="quantity"><br/>
                     <input class="input-background" type="submit" name="add-button2" value="Добавить">
                 </form>
             </div>
